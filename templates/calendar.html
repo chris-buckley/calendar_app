@@ -1,0 +1,45 @@
+{% include 'main.html' %}
+{% include 'navbar.html' %}
+
+<style>
+    td:hover {
+        background-color: #c6def8f3;
+        color: #ffffff;
+    }
+</style>
+
+
+<div class="container">
+    <h1 class="h1 text-center text-primary">Organisa.io</h1>
+
+    <table class="table table-responsive-sm table-hover">
+        <thead>
+            <tr>
+                <th colspan="7" class="bg-primary text-white text-center">{{ month }}/{{ year }}</th>
+            </tr>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for week in cal %}
+                <tr>
+                    {% for day in week %}
+                        {% if day != 0 %}
+                            <td class="p-2">{{ day }}</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
